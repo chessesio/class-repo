@@ -59,26 +59,53 @@
 
 # 1. Create a method that lets you change password given the current password
 # 2. Hash the password when secret is created
-class Secret:
+# class Secret:
 
-    def __init__(self,secret,password):
-        self.__secret = secret
-        self.__password = password
+#     def __init__(self,secret,password):
+#         self.__secret = secret
+#         self.__password = password
 
-    def get_secret(self, password):
-        if password == self.__password:
-            return print(self.__secret)
-        return None
+#     def get_secret(self, password):
+#         if password == self.__password:
+#             print(self.__secret)
 
-    def change_password(self, old_password, new_password):
-        if old_password == self.__password:
-            self.__password = new_password
-            print("Password changed successfully.")
-            
-        else:
-            print ("Wrong password!!")
-            return None
+#         else:
+#             print("Wrong password!")
 
-andrew_secret = Secret("I am beautifull","thetruth")
-andrew_secret.get_secret("thetruth")
-andrew_secret.change_password("thetrutth","issalie")
+#     def change_password(self, old_password, new_password):
+#         if old_password == self.__password:
+#             self.__password = new_password
+#             print("Password changed successfully.")
+
+#         else:
+#             print ("Wrong password!!")
+
+# andrew_secret = Secret("I am beautifull","thetruth")
+# andrew_secret.get_secret("thetruth")
+# andrew_secret.change_password("thetrutth","issalie")
+
+#_________________________________________________________________________________________________________________________________________
+
+# Class composition: The concept that a class can contaion and operate instances of another class or itself.
+
+class Egg:
+
+    def __init__(self,color,is_broken=False):
+        self.__color = color
+        self.__is_broken = is_broken
+
+    def drop(self):
+        self.__is_broken = True
+
+class Carton:
+
+    def __init__(self):
+        self.eggs = []
+
+    def add_egg(self, egg):
+        self.eggs.append(egg)
+
+    def drop_egg(self):
+        egg = self.eggs.pop()
+        egg.drop()
+        return egg
