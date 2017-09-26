@@ -38,12 +38,13 @@ def say_thankyou(): #funtion to send thankyou mail
 		email_connection.login(username,password)
 		
 		if len(guest_name) % 2 == 0: # condtion to answer part D of the question.
-			email_connection.sendmail(username, guest_email,"Thank you {} for showing up. Come again next time".format(guest_name))
+
+			email_connection.sendmail(username, guest_email,"Subject: We Appreciate You!\n\nThank you {} for showing up. Come again next time".format(guest_name))
 
 		else:
-			email_connection.sendmail(username, guest_email,"Thank you {} for showing up but you are unwelcom at future events!".format(guest_name))
+			email_connection.sendmail(username, guest_email,"Subject: We Appreciate You!\n\nThank you {} for showing up but you are unwelcome at future events!".format(guest_name))
 
-		email_connection.quit() sign out after sending email
+		email_connection.quit() # sign out after sending email
 
 #create a while loop to take user input and run required function
 
